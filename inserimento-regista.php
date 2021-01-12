@@ -65,7 +65,7 @@ if ($_POST) {
         <table>
             <tr>
                 <td><label for="idr">Codice</label></td>
-                <td><input type="text" name="idr" id="idr" /> <button type="button" id="cmd_genera_idr">Genera</button> </td>
+                <td><input type="text" name="idr" id="idr" maxlength="6" /> <button type="button" id="cmd_genera_idr">Genera</button> </td>
             </tr>
             <tr>
                 <td><label for="cognome">Cognome</label></td>
