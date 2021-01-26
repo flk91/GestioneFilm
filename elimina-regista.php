@@ -3,7 +3,7 @@ require_once 'connessione.php';
 if (!isset($_GET['idr'])) {
     die("Codice regista non fornito in input");
 }
-$idr = intval($_GET['idr']);
+$idr = $_GET['idr'];
 
 $blocca = false; //flag blocco eliminazione
 $eliminato = false; //flag avvenuta eliminazione
@@ -40,7 +40,7 @@ if ($_POST && $_POST['conferma']) {
     //se l'eliminazione non è stata bloccata
     if ($blocca == false) {
         //elimino il regista
-        $query = "DELETE FROM registi WHERE idr=$idr";
+        $query = "DELETE FROM registi WHERE idr='$idr'";
         $comando = $dbconn->prepare($query);
         $esegui = $comando->execute();
         $eliminato = true;

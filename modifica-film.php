@@ -64,6 +64,8 @@ if (isset($_GET['idf'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modifica film</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -123,6 +125,39 @@ if (isset($_GET['idf'])) {
             <button type="submit">Salva</button>
         </p>
     </form>
+
+    <h4>Attori che recitano nel film</h4>
+    <table class="tabella-dati">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Ruolo</th>
+                <th>Cachet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $query_attori_film = "SELECT r.idA, a.nome, a.cognome, r.ruolo, r.cachet
+        FROM attori a, recita r
+        WHERE r.idA=a.idA
+        AND idf=$idf";
+            $comando_attori_film = $dbconn->prepare($query_attori_film);
+            $esegui_attori_film = $comando_attori_film->execute();
+            if ($esegui_attori_film) {
+                while ($riga=$comando_attori_film->fetch()) {
+                    echo "<tr>";
+                    echo "<td>{$riga['nome']}</td>";
+                    echo "<td>{$riga['cognome']}</td>";
+                    echo "<td>{$riga['ruolo']}</td>";
+                    echo "<td>{$riga['cachet']}</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </tbody>
+    </table>
+
 </body>
 
 </html>
