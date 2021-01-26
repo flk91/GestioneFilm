@@ -27,13 +27,17 @@ if ($_POST && $_POST['conferma']) {
             //eseguo una query per dissociare i film dal regista
             $query_dissocia = "UPDATE film SET idr=NULL WHERE idr='$idr'";
             $comando_dissocia = $dbconn->prepare($query_dissocia);
-            $esegui_dissocia = $comando_dissocia->execute(true);
+            $esegui_dissocia = $comando_dissocia->execute();
             break;
         case 'elimina':
+            //elimino i film da recita
+            $query_eliminarecita="DELETE FROM recita WHERE idf IN (SELECT idf FROM FILM WHERE idr='$idr')";
+            $comando_eliminarecita=$dbconn->prepare($query_eliminarecita);
+            $esegui_eliminarecita=$comando_eliminarecita->execute();
             //elimino i film del regista
             $query_eliminaf = "DELETE FROM film WHERE idr='$idr'";
             $comando_eliminaf = $dbconn->prepare($query_dissocia);
-            $esegui_eliminaf = $comando_eliminaf->execute(true);
+            $esegui_eliminaf = $comando_eliminaf->execute();
             break;
     }
 
