@@ -1,5 +1,5 @@
 <?php
-require "connessione.php";
+require_once 'include/connessione.php';
 
 if (isset($_GET['idf'])) {
     $idf = intval($_GET['idf']);

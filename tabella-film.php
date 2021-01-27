@@ -1,5 +1,5 @@
 <?php
-require_once 'connessione.php';
+require_once 'include/connessione.php';
 
 $query = "SELECT f.idf, f.titolo, f.anno, f.durata, r.cognome, r.nome, f.idr AS f_idr
     FROM film AS f

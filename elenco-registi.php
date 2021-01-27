@@ -1,5 +1,5 @@
 <?php
-require_once 'connessione.php';
+require_once 'include/connessione.php';
 
 $query = "SELECT * FROM registi";
 $comando = $dbconn->prepare($query);

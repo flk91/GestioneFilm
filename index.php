@@ -15,6 +15,8 @@
 
         <ul>
             <li><a href="elenco-film.php">Elenco film</a></li>
+            <li><a href="tabella-film.php">Tabella film</a></li>
+            <li><a href="inserimento-film.php">&gt; Inserimento film</a></li>
             <li><a href="elenco-attori.php">Elenco attori</a></li>
             <li><a href="elenco-registi.php">Elenco registi</a></li>
         </ul>

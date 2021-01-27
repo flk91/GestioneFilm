@@ -1,5 +1,5 @@
 <?php
-require_once 'connessione.php';
+require_once 'include/connessione.php';
 
 /**
  * Messaggi di errore restituiti in fase di convalida.
@@ -90,7 +90,7 @@ if ($_POST) {
         </table>
     </form>
 
-    <script src="genera_idr.js"></script>
+    <script src="./js/genera_idr.js"></script>
 </body>
 
 </html>

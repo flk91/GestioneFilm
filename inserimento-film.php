@@ -1,5 +1,5 @@
 <?php
-require "connessione.php";
+require_once 'include/connessione.php';
 //se il form è stato inviato
 if ($_POST) {
     //leggiamo in input i dati in variabili semplici

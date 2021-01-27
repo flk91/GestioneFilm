@@ -1,5 +1,5 @@
 <?php
-require_once 'connessione.php';
+require_once 'include/connessione.php';
 
 $anno_inizio = 0;
 $anno_fine = 0;

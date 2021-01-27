@@ -1,5 +1,5 @@
 <?php
-require_once 'connessione.php';
+require_once 'include/connessione.php';
 if (!isset($_GET['idf'])) {
     die("Codice film non fornito in input");
 }

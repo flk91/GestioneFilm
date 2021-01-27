@@ -1,5 +1,5 @@
 <?php
-require_once 'connessione.php';
+require_once 'include/connessione.php';
 
 //step 1: compongo la stringa della query
 $query = "SELECT * FROM film";

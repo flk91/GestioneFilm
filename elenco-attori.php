@@ -1,5 +1,5 @@
 <?php
-require_once 'connessione.php';
+require_once 'include/connessione.php';
 
 $query = "SELECT * FROM attori";
 $comando = $dbconn->prepare($query);
@@ -41,10 +41,10 @@ $esegui = $comando->execute();
                         <td><?php echo $riga['nazione']; ?></td>
                         <td><?php echo date_format(date_create($riga['dataNas']), 'd/m/Y'); ?></td>
                         <td>
-                            <a href="modifica-attore.php?idr=<?php echo $riga['ida']; ?>">Modifica</a>
+                            <a href="modifica-attore.php?idr=<?php echo $riga['idA']; ?>">Modifica</a>
                         </td>
                         <td>
-                            <a href="elimina-attore.php?idr=<?php echo $riga['ida']; ?>">Elimina</a>
+                            <a href="elimina-attore.php?idr=<?php echo $riga['idA']; ?>">Elimina</a>
                         </td>
                     </tr>
                 <?php } ?>
