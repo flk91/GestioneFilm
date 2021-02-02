@@ -62,7 +62,7 @@ if (isset($_POST['associa'])) {
         <?php
         if (isset($idf)) {
             $attori = getAttoriFilm($idf);
-        ?>
+            ?>
             <form action="" method="post">
                 <fieldset>
                     <legend>Attori nel cast</legend>
@@ -87,7 +87,19 @@ if (isset($_POST['associa'])) {
                     <table class="tabella-form">
                         <tr>
                             <td>Attore</td>
-                            <td></td>
+                            <td>
+                                <select name="ida" id="ida_associa">
+                                <?php
+                                $attori = getElencoAttori();
+                                foreach($attori as $attore) {
+                                    $ida = $attore['ida'];
+                                    $nome = $attore['nome'];
+                                    $cognome = $attore['cognome'];
+                                    echo "<option value='$ida'>$cognome, $nome</option>";
+                                }
+                                ?>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>Ruolo</td>

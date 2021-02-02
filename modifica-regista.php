@@ -1,7 +1,7 @@
 <?php
 require_once 'include/connessione.php';
 
-require_once 'funzioni.php';
+require_once 'include/funzioni.php';
 
 if (isset($_GET['idr'])) {
     $idr = $_GET['idr'];

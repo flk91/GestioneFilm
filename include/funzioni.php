@@ -15,7 +15,6 @@ Abituarsi a creare funzioni permette di ottenere i seguenti vantaggi:
 
 */
 
-
 require_once __DIR__ . '/connessione.php';
 
 /**
@@ -60,17 +59,45 @@ function associa_film_attore(int $idf, int $ida)
     return $esegui;
 }
 
+/**
+ * Ottiene l'elenco degli attori che recitano in un determinato film
+ * @param int $idf Identificativo film
+ * @return array righe della tabella film di film dell'attore
+ */
 function getAttoriFilm($idf)
 {
     global $dbconn;
     $comando = $dbconn->prepare("SELECT * FROM attori a, recita r WHERE r.ida=a.ida AND r.idf=$idf");
     if ($comando->execute()) {
-        return $comando->fetchAll(PDO::FETCH_ASSOC);
+        $dati = $comando->fetchAll(PDO::FETCH_ASSOC);
+        //var_dump($dati);
+        return $dati;
     } else {
         //se la query non va a buon fine restituisco un array vuoto
         return [];
     }
 }
+
+/**
+ * Restituisce l'elenco di tutti gli attori
+ * @return array
+ */
+function getElencoAttori() {
+    global $dbconn;
+
+    $query = "SELECT * FROM attori ORDER BY cognome, nome";
+    $comando=$dbconn->prepare($query);
+    $esegui = $comando->execute();
+
+    if($esegui==true) {
+        return $comando->fetchAll(PDO::FETCH_ASSOC);
+    } else {
+        return [];
+    }
+
+}
+
+
 
 function dissociaAttore($idf, $ida)
 {
